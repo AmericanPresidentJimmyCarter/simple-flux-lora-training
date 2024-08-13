@@ -118,7 +118,7 @@ export RESOLUTION_TYPE="pixel"
 export MINIMUM_RESOLUTION=$RESOLUTION
 ```
 
-This is where I set the resolution to be 1024.
+This is where I set the resolution to be 1024. For training in 512x512 px, set `export RESOLUTION=512` and `export MINIMUM_RESOLUTION=0`.
 
 ```sh
 export TRACKER_PROJECT_NAME="flux-lora-training"
@@ -232,7 +232,7 @@ Now we need to get SimpleTuner cloned into this environment. Run these commands 
 
 ```bash
 apt -y install python3.11 python3.11-venv
-sudo apt -y install libgl1-mesa-glx
+sudo apt -y install libgl1-mesa-glx nvidia-cuda-toolkit
 git clone --branch=release https://github.com/bghira/SimpleTuner.git
 cd SimpleTuner
 python3.11 -m venv .venv
@@ -273,7 +273,15 @@ scp -P PORT -i /Users/greys/.ssh/id_ed25519 config.env root@IP_ADDRESS:/root/Sim
 scp -P PORT -i /Users/greys/.ssh/id_ed25519 multidatabackend.json root@IP_ADDRESS:/root/SimpleTuner/config/multidatabackend.json
 ```
 
-This will copy over all the files you need to begin training. Note that if you have thousands of images, you are better off copying over `multidatabackend_with_arb.json` by:
+This will copy over all the files you need to begin training. 
+
+If you are using 512x512 pixel training, instead of the last line copy over `multidatabackend_512.json`:
+
+```bash
+scp -P PORT -i /Users/greys/.ssh/id_ed25519 multidatabackend_512.json root@IP_ADDRESS:/root/SimpleTuner/config/multidatabackend.json
+```
+
+Note that if you have thousands of images, you are better off copying over `multidatabackend_with_arb.json` by:
 
 ```bash
 scp -P PORT -i /Users/greys/.ssh/id_ed25519 multidatabackend_with_arb.json root@IP_ADDRESS:/root/SimpleTuner/config/multidatabackend.json
@@ -315,7 +323,7 @@ Good luck!
 
 There are a number of ways to speed up training at the expense of quality and stability.
 
-1. Change the resolution in `config.env` to be `512`. This will train on smaller images, which is faster, but it can cause the model to lose some of the fine details of your subject(s) or style.
+1. Change the resolution in `config.env` to be `512` and use `multidatabackend_512.json` for your dataset. This will train on smaller images, which is faster, but it can cause the model to lose some of the fine details of your subject(s) or style.
 2. Reduce the batch size to `1` or `2`. More updates can sometimes train the model faster, but may compromise stability.
 3. Increase the learning rate. Higher learning rates learn faster but are more likely to collapse.
 4. Reduce the number of layers you are training. By default we train almost every `nn.Linear` in the model with `--flux_lora_target=all+ffs`, but you can train fewer layers with `--flux_lora_target=mmdit` or `--flux_lora_target=context`. You can also try a smaller rank e.g. `--lora_rank=4` or `--lora_rank=8`.
