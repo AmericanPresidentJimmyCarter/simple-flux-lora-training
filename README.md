@@ -2,7 +2,7 @@
 
 Things you need:
 
-- A computer with `ssh`, `scp`, and `git` installed. [Windows users see here for SSH](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui) and (here for git)[https://git-scm.com/download/win].
+- A computer with `ssh`, `scp`, and `git` installed. [Windows users see here for SSH](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui) and [here for git](https://git-scm.com/download/win).
 - A [wandb](https://wandb.ai/) account and API key, to watch your training progress
 - A [huggingface](https://huggingface.co/docs/hub/en/security-tokens) account and API token with write access (do not use a granular token), to store your checkpoints
 - To go to the [black-forest-labs/FLUX.1-dev](https://huggingface.co/black-forest-labs/FLUX.1-dev) and agree to use their model on your Huggingface account.
