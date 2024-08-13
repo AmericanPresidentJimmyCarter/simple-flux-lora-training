@@ -231,7 +231,8 @@ Probably the **most important thing you need to know about tmux is that to view 
 Now we need to get SimpleTuner cloned into this environment. Run these commands in the VM terminal:
 
 ```bash
-apt -y install python3.11 python3.11-venv libgl1-mesa-glx
+apt -y install python3.11 python3.11-venv
+sudo apt -y install libgl1-mesa-glx
 git clone --branch=release https://github.com/bghira/SimpleTuner.git
 cd SimpleTuner
 python3.11 -m venv .venv
