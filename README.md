@@ -184,6 +184,8 @@ export TRAINER_EXTRA_ARGS="\
 
 Most of these settings you do not need to change -- the one that is an exception is the `lora_rank`, which can be 1 or any multiple of 2. **The larger the LoRA rank, the more parameters your LoRA will have and thus the more capacity for learning it will have**. Likewise, the larger it is the more unwieldy it can become to train. For a single concept you may only need a rank of 8-16. For hundreds or thousands of images, you should choose a larger LoRA rank like 64 or 128.
 
+Note that larger ranks might require lower learning rates to train stably, so don't be surprised if the learning rate you used for rank 8 fails to transfer to rank 128.
+
 ## Step 4: Train
 
 Now we train flux. Your first task it to make a VM with enough space on it to train flux.
@@ -241,6 +243,8 @@ pip install git+https://github.com/huggingface/diffusers
 ```
 
 This may take a bit depending on the connection speed of the VM. We don't need `deepspeed` or `bitsandbytes` because we will be training in bfloat16 precision and they can break the validation sampling on some VMs.
+
+**If you need the `deepspeed` or `bitsandbytes` libraries, be sure to go to the [Templates page](https://cloud.vast.ai/templates/) of vast.ai and select the `PyTorch (cuDNN Devel) pytorch:2.4.0-cuda12.4-cudnn9-devel` template, which shouldn't throw errors.**
 
 Now SimpleTuner is all sorted out, so we need to log into wandb and Huggingface.
 
