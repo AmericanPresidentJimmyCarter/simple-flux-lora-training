@@ -73,7 +73,7 @@ I have the training batch size set to 4 in `config.env`, so if you use this defa
 
 You can also finetune on larger datasets! SimpleTuner supports whatever size dataset you might have, into the millions of images.
 
-For finetuning flux-dev, you have the choice between between the 512x512 or 1024x1024. I prefer to finetune in 1024x1024 because it can preserve more details of the images. To keep it simple, **this guide is for finetuning in 1024x1024**. Please make sure all your images are at least one megapixel in size.
+For finetuning flux-dev, you have the choice between between the 512x512 or 1024x1024. I prefer to finetune in 1024x1024 because it can preserve more details of the images. To keep it simple, **this guide is for finetuning in 1024x1024**. Please make sure all your images are at least one megapixel in size. I prefer to manually crop my images to square before training so that I know they are cropped correctly (by default, Simple Tuner will centre crop them).
 
 Earlier on in the guide you made a dataset folder with `mkdir dataset`. Open this folder in your file browser (Windows users: `start .` to open the location of the `simple-flux-lora-training` folder). Inside this folder, you will want to add your images in the following way:
 
