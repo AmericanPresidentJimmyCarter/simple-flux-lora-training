@@ -1,0 +1,31 @@
+[
+    {
+      "id": "default_dataset",
+      "type": "local",
+      "crop": true,
+      "crop_aspect": "square",
+      "crop_style": "center",
+      "resolution": 1.0,
+      "minimum_image_size": 0.5,
+      "maximum_image_size": 1.0,
+      "target_downsample_size": 1.0,
+      "resolution_type": "area",
+      "cache_dir_vae": "/root/SimpleTuner/cache/vae/flux/default_dataset",
+      "instance_data_dir": "/root/SimpleTuner/dataset",
+      "disabled": false,
+      "skip_file_discovery": "",
+      "caption_strategy": "textfile",
+      "metadata_backend": "json",
+      "cache_file_suffix": "square"
+    },
+    {
+      "id": "text-embeds",
+      "type": "local",
+      "dataset_type": "text_embeds",
+      "default": true,
+      "cache_dir": "/root/SimpleTuner/cache/text/flux/default_dataset",
+      "disabled": false,
+      "write_batch_size": 128
+    }
+  ]
+  
