@@ -222,7 +222,9 @@ Be sure to fill in your `PORT` and `IP_ADDRESS` of your vast.ai VM appropriately
 
 **Open a new terminal window**, copy this in, and Press enter. You should now connect to the VM over SSH. You may get a warning when making the connection, just answer Yes so you can connect to the host.
 
-After connecting to the host, you will be inside a tmux window. tmux is a windowed consoled that can allow you to have multiple tabs and window panes open at the same time. [You can read more about how to use it here](https://hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/).
+After connecting to the host, you will be inside a tmux window. tmux is a windowed consoled that can allow you to have multiple tabs and window panes open at the same time. [You can read more about how to use it here](https://hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/) or view a [cheatsheet](https://tmuxcheatsheet.com/) for it here.
+
+Probably the **most important thing you need to know about tmux is that to view scrollback, you do `ctrl + b` then press the `[` key then page up/page down, and then you are done press `q`.
 
 Now we need to get SimpleTuner cloned into this environment. Run these commands in the VM terminal:
 
