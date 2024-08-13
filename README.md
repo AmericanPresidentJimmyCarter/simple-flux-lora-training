@@ -173,7 +173,7 @@ The batch size is how many samples are run at the same time. Higher batch sizes 
 export TRAINER_EXTRA_ARGS="\
 --flux_guidance_value=1.0 \
 --flux_lora_target=all+ffs \
---lora_rank=64 \
+--lora_rank=32 \
 --keep_vae_loaded \
 --adam_weight_decay=0.1 \
 --max_grad_norm=1.0 \
@@ -182,7 +182,7 @@ export TRAINER_EXTRA_ARGS="\
 --lora_init_type=default"
 ```
 
-Most of these settings you do not need to change -- the one that is an exception is the `lora_rank`, which can be 1 or any multiple of 2. **The larger the LoRA rank, the more parameters your LoRA will have and thus the more capacity for learning it will have**. Likewise, the larger it is the more unwieldy it can become to train. For a single concept you may only need a rank of 8-16. For hundreds or thousands of images, you should choose a larger LoRA rank like 64 or 128.
+Most of these settings you do not need to change -- the one that is an exception is the `lora_rank=32`, which can be 1 or any multiple of 2. **The larger the LoRA rank, the more parameters your LoRA will have and thus the more capacity for learning it will have**. Likewise, the larger it is the more unwieldy it can become to train. For a single concept you may only need a rank of 8-16. For hundreds or thousands of images, you should choose a larger LoRA rank like 64 or 128.
 
 Note that larger ranks might require lower learning rates to train stably, so don't be surprised if the learning rate you used for rank 8 fails to transfer to rank 128.
 
