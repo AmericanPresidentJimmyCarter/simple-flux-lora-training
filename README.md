@@ -18,7 +18,7 @@ cd simple-flux-lora-training
 mkdir dataset
 ```
 
-## Step 1: Make an SSH key (optional, one time only)
+## Step 1: Make an SSH key (one time only, skip if you have one)
 
 Run `ssh-keygen -t ed25519` to generate an SSH key. Follow the instructions. You will need this for vast.
 
@@ -309,3 +309,12 @@ wandb: 🚀 View run at https://wandb.ai/chadbfan/flux-lora-training/runs/734014
 You can follow this link to view your training in progress. There validation images and training loss (a measure of how fit your model is to the training set) are reported. If your validation images become noise and the loss spikes very high, your training has collapsed and you will need to start over at a new, lower learning rate. Your checkpoints will be automatically uploaded to your Huggingface account, where you can download and use them.
 
 Good luck!
+
+## Appendix: Tricks and Tips
+
+There are a number of ways to speed up training at the expense of quality and stability.
+
+1. Change the resolution in `config.env` to be `512`. This will train on smaller images, which is faster, but it can cause the model to lose some of the fine details of your subject(s) or style.
+2. Reduce the batch size to `1` or `2`. More updates can sometimes train the model faster, but may compromise stability.
+3. Increase the learning rate. Higher learning rates learn faster but are more likely to collapse.
+4. Reduce the number of layers you are training. By default we train almost every `nn.Linear` in the model with `--flux_lora_target=all+ffs`, but you can train fewer layers with `--flux_lora_target=mmdit` or `--flux_lora_target=context`. You can also try a smaller rank e.g. `--lora_rank=4` or `--lora_rank=8`.
