@@ -8,7 +8,7 @@
       "resolution": 512,
       "minimum_image_size": 0,
       "maximum_image_size": 1024,
-      "target_downsample_size": 1024,
+      "target_downsample_size": 512,
       "resolution_type": "pixel_area",
       "cache_dir_vae": "/root/SimpleTuner/cache/vae/flux/default_dataset",
       "instance_data_dir": "/root/SimpleTuner/dataset",

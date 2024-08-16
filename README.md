@@ -280,6 +280,12 @@ If you are using 512x512 pixel training, instead of the last line copy over `mul
 scp -P PORT -i /Users/greys/.ssh/id_ed25519 multidatabackend_512.json root@IP_ADDRESS:/root/SimpleTuner/config/multidatabackend.json
 ```
 
+If you want to train 512x512, 768x768, and 1024x1024 at the same time, copy over `multidatabackend_512_768_1024.json` instead.
+
+```bash
+scp -P PORT -i /Users/greys/.ssh/id_ed25519 multidatabackend_512_768_1024.json root@IP_ADDRESS:/root/SimpleTuner/config/multidatabackend.json
+```
+
 Note that if you have thousands of images, you are better off copying over `multidatabackend_with_arb.json` by:
 
 ```bash
