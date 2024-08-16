@@ -280,7 +280,7 @@ If you are using 512x512 pixel training, instead of the last line copy over `mul
 scp -P PORT -i /Users/greys/.ssh/id_ed25519 multidatabackend_512.json root@IP_ADDRESS:/root/SimpleTuner/config/multidatabackend.json
 ```
 
-If you want to train 512x512, 768x768, and 1024x1024 at the same time, copy over `multidatabackend_512_768_1024.json` instead.
+If you want to train 512x512, 768x768, and 1024x1024 at the same time, copy over `multidatabackend_512_768_1024.json` instead. With this option, you can keep your `RESOLUTION` in `config.env` at 1024.
 
 ```bash
 scp -P PORT -i /Users/greys/.ssh/id_ed25519 multidatabackend_512_768_1024.json root@IP_ADDRESS:/root/SimpleTuner/config/multidatabackend.json
@@ -328,7 +328,7 @@ Good luck!
 
 There are a number of ways to speed up training at the expense of quality and stability.
 
-1. Change the resolution in `config.env` to be `512` and use `multidatabackend_512.json` for your dataset. This will train on smaller images, which is faster, but it can cause the model to lose some of the fine details of your subject(s) or style.
+1. Change the resolution in `config.env` to be `512` and use `multidatabackend_512.json` for your dataset or keep resolution in `config.env` as `1024` but use `multidatabackend_512_768_1024.json`. This will train on smaller images, which is faster, but it can cause the model to lose some of the fine details of your subject(s) or style.
 2. Reduce the batch size to `1` or `2`. More updates can sometimes train the model faster, but may compromise stability.
 3. Increase the learning rate. Higher learning rates learn faster but are more likely to collapse.
 4. Reduce the number of layers you are training. By default we train almost every `nn.Linear` in the model with `--flux_lora_target=all+ffs`, but you can train fewer layers with `--flux_lora_target=mmdit` or `--flux_lora_target=context`. You can also try a smaller rank e.g. `--lora_rank=4` or `--lora_rank=8`.
