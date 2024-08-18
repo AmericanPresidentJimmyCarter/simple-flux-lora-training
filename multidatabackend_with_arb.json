@@ -25,7 +25,7 @@
     "crop_aspect": "random",
     "crop_aspect_buckets": [0.33, 0.5, 0.75, 1.0, 1.25, 1.5, 1.75],
     "resolution": 1.0,
-    "minimum_image_size": 0.5,
+    "minimum_image_size": 0.1,
     "maximum_image_size": 1.0,
     "target_downsample_size": 1.0,
     "resolution_type": "area",
