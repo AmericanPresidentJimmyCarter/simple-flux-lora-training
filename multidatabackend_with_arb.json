@@ -6,7 +6,7 @@
     "crop_aspect": "square",
     "crop_style": "center",
     "resolution": 1024,
-    "minimum_image_size": 512,
+    "minimum_image_size": 1024,
     "maximum_image_size": 1024,
     "target_downsample_size": 1024,
     "resolution_type": "pixel_area",
