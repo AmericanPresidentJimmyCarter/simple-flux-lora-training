@@ -190,6 +190,10 @@ Note that larger ranks might require lower learning rates to train stably, so do
 
 Now we train flux. Your first task it to make a VM with enough space on it to train flux.
 
+Note: If this if your first time using vast.ai, you may be prompted to first select your training template docker image. Just select the first one then select **Instances** -> **Create one!** after.
+
+![](selecttemplate.png)
+
 Go to the [vast.ai console](https://cloud.vast.ai/). Find the "Instance Configuration" card on the center left and drag the slider for the space you need to be >200 GB, which should give you a lot of room.
 
 ![](images/space.png)
@@ -323,6 +327,19 @@ wandb: 🚀 View run at https://wandb.ai/chadbfan/flux-lora-training/runs/734014
 You can follow this link to view your training in progress. There validation images and training loss (a measure of how fit your model is to the training set) are reported. If your validation images become noise and the loss spikes very high, your training has collapsed and you will need to start over at a new, lower learning rate. Your checkpoints will be automatically uploaded to your Huggingface account, where you can download and use them.
 
 Good luck!
+
+## LoKr with LyCORIS
+
+LoKr can now be trained via LyCORIS and can give better results than LoRA. To use LyCORIS, simply copy over the `lycoris_config.json`:
+
+```bash
+scp -P PORT -i /Users/greys/.ssh/id_ed25519 lycoris_config.json root@IP_ADDRESS:/root/SimpleTuner/config/lycoris_config.json
+```
+
+Then set the following inside your `config.env`:
+
+- Below `export MODEL_TYPE='lora'` add the new line `export LORA_TYPE='lycoris'`.
+- Set your learning rate (`LEARNING_RATE`) to `8e-4`, as LoKr requires higher learning rates.
 
 ## Appendix: Tricks and Tips
 
