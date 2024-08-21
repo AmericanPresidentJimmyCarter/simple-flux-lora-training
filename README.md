@@ -326,6 +326,8 @@ wandb: 🚀 View run at https://wandb.ai/chadbfan/flux-lora-training/runs/734014
 
 You can follow this link to view your training in progress. There validation images and training loss (a measure of how fit your model is to the training set) are reported. If your validation images become noise and the loss spikes very high, your training has collapsed and you will need to start over at a new, lower learning rate. Your checkpoints will be automatically uploaded to your Huggingface account, where you can download and use them.
 
+By default the `MAX_NUM_STEPS=5000`, but your low rank training will probably only need about 1000-3000 steps to see good results. Monitor your validation images and halt your training with `ctrl + c` when it looks good, then destroy the instance on vast.
+
 Good luck!
 
 ## LoKr with LyCORIS
