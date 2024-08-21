@@ -192,7 +192,7 @@ Now we train flux. Your first task it to make a VM with enough space on it to tr
 
 Note: If this if your first time using vast.ai, you may be prompted to first select your training template docker image. Just select the first one then select **Instances** -> **Create one!** after.
 
-![](selecttemplate.png)
+![](images/selecttemplate.png)
 
 Go to the [vast.ai console](https://cloud.vast.ai/). Find the "Instance Configuration" card on the center left and drag the slider for the space you need to be >200 GB, which should give you a lot of room.
 
