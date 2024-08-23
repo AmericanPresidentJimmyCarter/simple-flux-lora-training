@@ -242,8 +242,6 @@ python3.11 -m venv .venv
 source .venv/bin/activate
 pip install -U poetry pip
 poetry install --no-root
-pip uninstall -y deepspeed bitsandbytes diffusers
-pip install git+https://github.com/huggingface/diffusers
 ```
 
 This may take a bit depending on the connection speed of the VM. We don't need `deepspeed` or `bitsandbytes` because we will be training in bfloat16 precision and they can break the validation sampling on some VMs.
