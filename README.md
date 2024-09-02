@@ -18,7 +18,7 @@ cd simple-flux-lora-training
 mkdir dataset
 ```
 
-## Step 1: Make an SSH key (one time only, skip if you have one)
+## Step 1.1: Make an SSH key (one time only, skip if you have one)
 
 Run `ssh-keygen -t ed25519` to generate an SSH key. Follow the instructions. You will need this for vast.
 
