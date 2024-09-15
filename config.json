@@ -33,7 +33,6 @@
     "--push_checkpoints_to_hub": "true",
     "--report_to": "wandb",
     "--flux_guidance_value": 1.0,
-    "--adam_weight_decay": 0.02,
     "--max_grad_norm": 1.0,
     "--flux_schedule_auto_shift": "true",
     "--validation_on_startup": "true",
