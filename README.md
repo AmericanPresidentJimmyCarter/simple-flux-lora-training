@@ -163,7 +163,7 @@ Note that larger ranks might require lower learning rates to train stably, so do
 
 Now we train flux. Your first task it to make a VM with enough space on it to train flux.
 
-Note: If this if your first time using vast.ai, you may be prompted to first select your training template docker image. Just select the first one then select **Instances** -> **Create one!** after.
+Note: If this if your first time using vast.ai, you may be prompted to first select your training template docker image. Just select the CUDA 12.4 template then select **Instances** -> **Create one!** after.
 
 ![](images/selecttemplate.png)
 
